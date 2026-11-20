@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>그린루틴 · 대학생 탄소중립 실천 앱</title>
+<title>greenroutine</title>
 <style>
 :root{--bg:#eef3ee;--fg:#10261f;--pn:#fff;--mu:#5a6e64;--ac:#1f7a4d;--bl:#2d6fb7;--sun:#d98e04;--ln:#d3dfd5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1b16;--fg:#e4efe8;--pn:#172820;--mu:#9bb3a6;--ac:#52c98a;--bl:#6aa8ee;--sun:#f0b43a;--ln:#274034}}
@@ -112,7 +112,7 @@ const hv=k=>base(k)/Math.max(...Q.find(q=>q.k==k).o.map(o=>o[1]))>=.45;
 const plan=()=>S.goal?S.goal.ids.map(id=>[K(id),S.goal.fq]):Object.keys(CN).map(k=>rec().find(a=>a[1]==k)).filter(Boolean).map(a=>[a,5]);
 const after=k=>{const x=plan().filter(p=>p[0][1]==k).reduce((s,p)=>s+p[0][3]*p[1],0);return Math.max(base(k)*.2,base(k)-x)};
 
-function v0(){return `<div class="hero"><h1>내 습관부터 확인해요</h1><p class="mu">다섯 가지 질문에 답하면 배출이 큰 습관을 찾아 드려요.</p></div><div class="box intro"><b>🌱 그린루틴은 이런 앱이에요</b><p>대학생이 일상 속 작은 실천으로 탄소 배출을 줄이도록 돕는 앱이에요. 내 생활습관의 배출량을 확인하고, 실천할 행동을 정해 기록하면서 줄인 탄소량을 눈으로 확인할 수 있어요.</p><ul><li><b>진단</b><span>다섯 가지 질문에 답하면 내 주간 배출량과 배출이 큰 습관을 알려줘요.</span></li><li><b>추천</b><span>진단 결과에 맞는 행동을 보고, 해 볼 행동을 '담기'해요.</span></li><li><b>오늘</b><span>담은 행동을 실천하면 체크해요. 오늘 줄인 탄소량과 연속 실천일이 쌓이고, 달력에서 지난 기록을 확인하고 수정할 수 있어요.</span></li><li><b>목표</b><span>기간과 횟수, 행동을 골라 목표를 세우고 진행 상황을 확인해요.</span></li><li><b>리포트</b><span>일·주·누적 단위로 줄인 탄소량의 변화를 그래프로 봐요.</span></li><li><b>혜택</b><span>탄소중립포인트제처럼 실천하면 받을 수 있는 혜택과 신청 방법을 안내해요.</span></li></ul><p class="mu" style="margin-top:8px">먼저 아래 질문 5개에 답하는 것부터 시작해 보세요.</p></div><a class="lk" href="https://forms.gle/Z5URpSbb5SMT1q9Q6" target="_blank" rel="noopener" style="border:1.5px solid var(--ac);margin:14px 0 0"><b>🌱 5일 정도 사용해 보신 뒤 이용 후기를 남겨 주세요!</b><span style="font-size:13px;margin-top:2px">사용하면서 느낀 점과 불편했던 점을 알려 주시면 큰 도움이 돼요. 후기 남기러 가기 →</span></a>`+
+function v0(){return `<div class="hero"><h1>내 습관부터 확인해요</h1><p class="mu">다섯 가지 질문에 답하면 배출이 큰 습관을 찾아 드려요.</p></div><div class="box intro"><b>🌱 greenroutine은 이런 앱이에요</b><p>대학생이 일상 속 작은 실천으로 탄소 배출을 줄이도록 돕는 앱이에요. 내 생활습관의 배출량을 확인하고, 실천할 행동을 정해 기록하면서 줄인 탄소량을 눈으로 확인할 수 있어요.</p><ul><li><b>진단</b><span>다섯 가지 질문에 답하면 내 주간 배출량과 배출이 큰 습관을 알려줘요.</span></li><li><b>추천</b><span>진단 결과에 맞는 행동을 보고, 해 볼 행동을 '담기'해요.</span></li><li><b>오늘</b><span>담은 행동을 실천하면 체크해요. 오늘 줄인 탄소량과 연속 실천일이 쌓이고, 달력에서 지난 기록을 확인하고 수정할 수 있어요.</span></li><li><b>목표</b><span>기간과 횟수, 행동을 골라 목표를 세우고 진행 상황을 확인해요.</span></li><li><b>리포트</b><span>일·주·누적 단위로 줄인 탄소량의 변화를 그래프로 봐요.</span></li><li><b>혜택</b><span>탄소중립포인트제처럼 실천하면 받을 수 있는 혜택과 신청 방법을 안내해요.</span></li></ul><p class="mu" style="margin-top:8px">먼저 아래 질문 5개에 답하는 것부터 시작해 보세요.</p></div><a class="lk" href="https://forms.gle/Z5URpSbb5SMT1q9Q6" target="_blank" rel="noopener" style="border:1.5px solid var(--ac);margin:14px 0 0"><b>🌱 5일 정도 사용해 보신 뒤 이용 후기를 남겨 주세요!</b><span style="font-size:13px;margin-top:2px">사용하면서 느낀 점과 불편했던 점을 알려 주시면 큰 도움이 돼요. 후기 남기러 가기 →</span></a>`+
 Q.map(q=>`<div class="q"><b>${q.q}</b>${q.n?`<p class="mu" style="margin:2px 0 0">${q.n}</p>`:""}<div class="opts">${q.o.map((o,i)=>`<button class="${S.ans[q.k]===i?"on":""}" onclick="setA('${q.k}',${i})">${o[0]}</button>`).join("")}</div></div>`).join("")+
 (done()?res()+`<p style="margin-top:14px"><button class="on" onclick="go(1)">맞춤 행동 추천 보기</button></p>`:`<p class="mu" style="margin-top:14px">모든 질문에 답하면 결과가 나와요.</p>`)}
 
