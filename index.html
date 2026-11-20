@@ -123,7 +123,8 @@ if(hv("cup")||hv("del"))c.push(["플라스틱·일회용품 사용이 많은 편
 if(hv("pwr"))c.push(["전기 사용 습관을 줄일 여지가 있어요","사용하지 않는 충전기와 플러그를 뽑는 습관을 들여 보세요.","참여 가능한 제도: 탄소중립포인트 에너지는 전기·수도·도시가스를 줄인 비율에 따라 포인트를 주고 연 최대 10만 원까지 받을 수 있어요. 신청 대상과 명의 조건은 누리집이나 구청에서 확인하세요.",["b9"]]);
 if(hv("mob"))c.push(["승용차 이동 비중이 커요","승용차 대신 버스·지하철로 등교해 보세요. 배출량이 크게 줄어요.","참여 가능한 제도: 차량 소유자라면 탄소중립포인트 자동차(주행거리 감축률에 따라 연 2만~10만 포인트)를 확인하세요.",["b1"]]);
 if(hv("food"))c.push(["잔반이 많은 편이에요","먹을 만큼만 담아 잔반을 줄이고, 가끔은 채식·저육류 식사로 바꿔 보세요.","",["b3","b2"]]);
-return c.length?`<h2>결과에 따른 맞춤 안내</h2>`+c.map(x=>`<div class="box"><b>${x[0]}</b><p>${x[1]}</p>${x[2]?`<p class="mu">${x[2]}</p>`:""}<button class="on" onclick="pick('${x[3].join(",")}')">이 행동으로 목표 세우기</button></div>`).join(""):""}
+if(!c.length){const ids=rec().slice(0,3).map(a=>a[0]);c.push(["현재 습관에 맞는 맞춤 행동이에요","추천 순서가 높은 행동부터 목표를 세워 실천해 보세요.","",ids])}
+return c.length?`<h2>결과에 따른 맞춤 행동</h2>`+c.map(x=>`<div class="box"><b>${x[0]}</b><p>${x[1]}</p>${x[2]?`<p class="mu">${x[2]}</p>`:""}<button class="on" onclick="pick('${x[3].join(",")}')">이 행동으로 목표 세우기</button></div>`).join(""):""}
 
 function res(){const O=Q.map(q=>q.k).sort((a,b)=>base(b)-base(a)),T=O.reduce((s,k)=>s+base(k),0),T2=O.reduce((s,k)=>s+after(k),0),mx=Math.max(...O.map(base),.001),pc=x=>T?(x/T*100<1&&x>0?(x/T*100).toFixed(1):Math.round(x/T*100)):0,w=x=>x>0?Math.max(1.5,x/mx*100):0;
 return `<h2>내 예상 탄소 배출량</h2><div class="big" style="color:var(--sun)">${f(T)}<small style="font-size:18px"> kg/주</small></div><p class="mu">입력한 생활습관 기준 예상치예요. 연으로 환산하면 약 ${Math.round(T*52)}kg이에요.</p>`+
