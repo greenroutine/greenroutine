@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>greenroutine</title>
 <style>
 :root{--bg:#eef3ee;--fg:#10261f;--pn:#fff;--mu:#5a6e64;--ac:#1f7a4d;--bl:#2d6fb7;--sun:#d98e04;--ln:#d3dfd5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -194,7 +197,7 @@ G.map(g=>`<details class="q"><summary><b>${g[0]}</b></summary><p>${g[1]}</p><p c
 `<h2>바로가기</h2>`+LK.map(l=>`<a class="lk" href="${l[1]}" target="_blank" rel="noopener"><b>${l[0]}</b><span>${l[2]}</span></a>`).join("")+
 `<p class="mu">대학생은 녹색생활 실천부터 시작하기 쉬워요. 에너지·자동차는 가입 대상과 명의 조건을 누리집에서 꼭 확인하세요. 제도 내용은 바뀔 수 있어요.</p>`}
 
-function pick(s){S.dr={ids:s.split(","),n:7,fq:5};go(2)}
+function pick(s){S.dr={ids:s.split(","),n:7,fq:5};go(3)}
 function dSet(k,v){S.dr[k]=v;r()}
 function dTg(id){const a=S.dr.ids;S.dr.ids=a.includes(id)?a.filter(x=>x!=id):a.concat(id);r()}
 function gStart(){S.goal={ids:S.dr.ids.slice(),n:S.dr.n,fq:S.dr.fq,start:dk(0)};S.dr.ids.forEach(id=>{if(!S.mine.includes(id))S.mine.push(id)});r()}
@@ -224,7 +227,7 @@ return `<div class="hero"><h1>실천 목표 세우기</h1><p class="mu">기간�
 `<h2>3. 실천할 행동</h2>`+rec().map(a=>`<div class="act"><div><b>${a[2]}</b><span class="tag">${CN[a[1]]} · ${a[5]}당 ${f(a[3])}kg 감축 · ${LV[a[4]]}</span></div><button class="${d.ids.includes(a[0])?"on":""}" onclick="dTg('${a[0]}')">${d.ids.includes(a[0])?"선택됨":"선택"}</button></div>`).join("")+
 `<div class="box"><b>예상 효과 (${d.n}일)</b><p>탄소 <b>${f(e[0]*w)}kg</b> 감축</p><p class="mu">선택한 행동을 주 ${d.fq}회씩 ${d.n}일 동안 했을 때의 예상치예요. ${NOTE}</p></div><button class="on" ${d.ids.length?"":"disabled"} onclick="gStart()">목표 시작</button>`}
 
-const V=[v0,v1,v5,v2,v3,v4],NV=["진단","추천","목표","오늘","리포트","혜택"];
+const V=[v0,v1,v2,v5,v3,v4],NV=["진단","추천","오늘","목표","리포트","혜택"];
 function r(){document.getElementById("app").innerHTML=V[tab]()+`<p class="mu" id="st">${ST}</p>`;document.getElementById("nav").innerHTML=NV.map((n,i)=>`<button class="${i==tab?"on":""}" onclick="go(${i})">${n}</button>`).join("");save()}
 function go(i){tab=i;r();scrollTo(0,0)}
 function setA(k,i){S.ans[k]=i;r()}
